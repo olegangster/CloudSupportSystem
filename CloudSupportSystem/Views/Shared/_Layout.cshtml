@@ -1,0 +1,126 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Cloud Support System</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <style>
+            body {
+                background-color: #f4f7fb;
+                color: #1e293b;
+                min-height: 100vh;
+            }
+
+            .navbar-custom {
+                background: linear-gradient(110deg, #172554, #1d4ed8);
+                box-shadow: 0 4px 15px rgba(15, 23, 42, 0.15);
+            }
+
+            .navbar-brand {
+                font-weight: 800;
+                letter-spacing: 0.3px;
+            }
+
+            .navbar-custom .nav-link {
+                color: #dbeafe;
+                transition: color 0.2s;
+            }
+
+                .navbar-custom .nav-link:hover {
+                    color: #ffffff;
+                }
+
+            .page-content {
+                min-height: calc(100vh - 145px);
+            }
+
+            .card {
+                border-radius: 14px;
+            }
+
+            .btn {
+                border-radius: 8px;
+            }
+
+            footer {
+                color: #64748b;
+                border-top: 1px solid #e2e8f0;
+                background-color: #ffffff;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <div class="container">
+                <a class="navbar-brand"
+                   asp-controller="SupportTickets"
+                   asp-action="Index">
+                    ☁ Cloud Support System
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavigation"
+                        aria-controls="mainNavigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="mainNavigation">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="SupportTickets"
+                               asp-action="Index">
+                                All Tickets
+                            </a>
+                        </li>
+
+                        <li class="nav-item ms-lg-2">
+                            <a class="btn btn-light btn-sm fw-semibold"
+                               asp-controller="SupportTickets"
+                               asp-action="Create">
+                                + New Ticket
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        @RenderBody()
+    </main>
+
+    <footer class="py-3">
+        <div class="container text-center">
+            <small>
+                Cloud Support System &copy; @DateTime.Now.Year
+                | ASP.NET Core MVC &amp; AWS
+            </small>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
